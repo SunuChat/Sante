@@ -1,0 +1,11 @@
+from utils.embed import *
+from utils.pdf_loader import *
+from utils.splitter import *
+from dotenv import load_dotenv
+
+load_dotenv()
+
+docs = load_kb(KB_PATH="./KB")
+chunks = split(docs)
+vector_store, ids = embed_and_store(chunks)
+print("Embedding done")

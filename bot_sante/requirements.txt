@@ -1,0 +1,14 @@
+megaparse
+langchain_openai
+langchain_chroma
+langchain_text_splitters
+pydantic
+torch
+transformers
+datasets
+scipy
+python-dotenv
+pydub
+ffmpeg
+peft
+bitsandbytes
