@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e298b0d4.css",
+    "main.js": "/static/js/main.ad6bf5ce.js",
+    "static/js/453.a1a50062.chunk.js": "/static/js/453.a1a50062.chunk.js",
+    "static/media/mascotteSunuchat.png": "/static/media/mascotteSunuchat.afcfc328de9ae1d705a4.png",
+    "static/media/logoSunuchat.png": "/static/media/logoSunuchat.6aec205bf8b4d8f8b9d6.png",
+    "index.html": "/index.html",
+    "main.e298b0d4.css.map": "/static/css/main.e298b0d4.css.map",
+    "main.ad6bf5ce.js.map": "/static/js/main.ad6bf5ce.js.map",
+    "453.a1a50062.chunk.js.map": "/static/js/453.a1a50062.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e298b0d4.css",
+    "static/js/main.ad6bf5ce.js"
+  ]
+}
