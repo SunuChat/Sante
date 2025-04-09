@@ -8,7 +8,7 @@ import os
 load_dotenv()
 token = os.getenv("HG_TOKEN")
 
-model_id = "AYI-TEKK/asr-v2"
+model_id = "AYI-TEKK/asr-wo"
 device = 0 if torch.cuda.is_available() else -1
 torch_dtype = torch.float16 if torch.cuda.is_available() else torch.float32
 
