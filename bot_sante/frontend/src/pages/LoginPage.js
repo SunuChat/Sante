@@ -1,5 +1,13 @@
 import React, { useState } from "react";
-import { Box, TextField, Button, Typography, Paper, Fade } from "@mui/material";
+import {
+  Box,
+  TextField,
+  Button,
+  Typography,
+  Paper,
+  Fade,
+  Link,
+} from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -10,7 +18,7 @@ const LoginPage = () => {
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    /*e.preventDefault();
     try {
       const response = await axios.post("http://localhost:8000/login", {
         username: email,
@@ -20,7 +28,8 @@ const LoginPage = () => {
       navigate("/");
     } catch (err) {
       setError("Email ou mot de passe incorrect.");
-    }
+    }*/
+    navigate("/");
   };
 
   return (
@@ -113,6 +122,28 @@ const LoginPage = () => {
               Se connecter
             </Button>
           </form>
+
+          <Typography
+            variant="body2"
+            align="center"
+            sx={{ mt: 3, color: "#666" }}
+          >
+            Pas encore de compte ?{" "}
+            <Link
+              onClick={() => navigate("/signup")}
+              sx={{
+                cursor: "pointer",
+                color: "#2575fc",
+                fontWeight: "bold",
+                textDecoration: "none",
+                ":hover": {
+                  textDecoration: "underline",
+                },
+              }}
+            >
+              Inscris-toi
+            </Link>
+          </Typography>
         </Paper>
       </Fade>
     </Box>

@@ -1,5 +1,13 @@
 import React, { useState } from "react";
-import { Box, TextField, Button, Typography, Paper, Fade } from "@mui/material";
+import {
+  Box,
+  TextField,
+  Button,
+  Typography,
+  Paper,
+  Fade,
+  Link,
+} from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -13,6 +21,7 @@ const SignUpPage = () => {
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
+    /*
     e.preventDefault();
     if (password !== confirmPassword) {
       setError("Les mots de passe ne correspondent pas.");
@@ -29,7 +38,9 @@ const SignUpPage = () => {
       navigate("/");
     } catch (err) {
       setError("L'inscription a échoué.");
-    }
+    }*/
+
+    navigate("/login");
   };
 
   return (
@@ -50,7 +61,7 @@ const SignUpPage = () => {
           elevation={6}
           sx={{
             padding: 4,
-            width: 400,
+            width: 420,
             borderRadius: 3,
             backdropFilter: "blur(10px)",
             backgroundColor: "rgba(255, 255, 255, 0.85)",
@@ -146,6 +157,23 @@ const SignUpPage = () => {
             >
               S'inscrire
             </Button>
+
+            {/* Lien vers la connexion */}
+            <Typography
+              variant="body2"
+              align="center"
+              sx={{ mt: 2, color: "#555" }}
+            >
+              Tu as déjà un compte ?{" "}
+              <Link
+                component="button"
+                variant="body2"
+                onClick={() => navigate("/login")}
+                sx={{ fontWeight: "bold", color: "#2575fc" }}
+              >
+                Connecte-toi ici
+              </Link>
+            </Typography>
           </form>
         </Paper>
       </Fade>
