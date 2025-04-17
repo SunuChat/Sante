@@ -7,8 +7,41 @@ from rag import ask_kb
 from traduction_fr_wo import translate_fr_wo
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
+from db import users_collection
+from models import UserCreate, UserLogin
+from auth import hash_password, verify_password, create_access_token
+from bson import ObjectId
+from datetime import datetime
+
+
 
 app = FastAPI()
+
+@app.post("/signup")
+async def signup(user: UserCreate):
+    existing_user = await users_collection.find_one({"email": user.email})
+    if existing_user:
+        raise HTTPException(status_code=400, detail="Email déjà utilisé")
+
+    user_data = user.dict()
+    user_data["password"] = hash_password(user.password)
+    user_data["signup_date"] = datetime.utcnow()
+    user_data["settings"] = {"notifications_enabled": True}
+
+    result = await users_collection.insert_one(user_data)
+    user_id = str(result.inserted_id)
+
+    return {"message": "Utilisateur inscrit avec succès", "user_id": user_id}
+
+
+@app.post("/login")
+async def login(user: UserLogin):
+    db_user = await users_collection.find_one({"email": user.email})
+    if not db_user or not verify_password(user.password, db_user["password"]):
+        raise HTTPException(status_code=400, detail="Identifiants invalides")
+
+    token = create_access_token(data={"user_id": str(db_user["_id"])})
+    return {"access_token": token, "token_type": "bearer"}
 
 @app.post("/chatbot")
 async def chatbot(audio: UploadFile = File(...)):
@@ -39,6 +72,8 @@ async def chatbot(audio: UploadFile = File(...)):
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+
 
 app.add_middleware(
     CORSMiddleware,
