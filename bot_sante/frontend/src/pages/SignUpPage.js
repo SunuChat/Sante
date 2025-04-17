@@ -13,6 +13,7 @@ import axios from "axios";
 
 const SignUpPage = () => {
   const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [firstName, setFirstName] = useState("");
@@ -21,26 +22,25 @@ const SignUpPage = () => {
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
-    /*
     e.preventDefault();
     if (password !== confirmPassword) {
       setError("Les mots de passe ne correspondent pas.");
       return;
     }
     try {
-      const response = await axios.post("http://localhost:8000/signup", {
-        username: email,
+      const response = await axios.post("http://localhost:4000/signup", {
+        email: email,
         password: password,
         firstname: firstName,
         lastname: lastName,
+        phone: phoneNumber,
       });
       console.log(response.data);
-      navigate("/");
+      navigate("/login");
     } catch (err) {
+      console.log("erreur", err);
       setError("L'inscription a échoué.");
-    }*/
-
-    navigate("/login");
+    }
   };
 
   return (
@@ -113,6 +113,14 @@ const SignUpPage = () => {
               margin="normal"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+            />
+            <TextField
+              label="Téléphone"
+              variant="outlined"
+              fullWidth
+              margin="normal"
+              value={phoneNumber}
+              onChange={(e) => setPhoneNumber(e.target.value)}
             />
             <TextField
               label="Mot de passe"

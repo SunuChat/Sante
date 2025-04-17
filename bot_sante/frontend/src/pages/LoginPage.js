@@ -18,18 +18,18 @@ const LoginPage = () => {
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
-    /*e.preventDefault();
+    e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:8000/login", {
-        username: email,
+      const response = await axios.post("http://localhost:4000/login", {
+        email: email,
         password: password,
       });
       console.log(response.data);
       navigate("/");
     } catch (err) {
       setError("Email ou mot de passe incorrect.");
-    }*/
-    navigate("/");
+      console.log("erreur", err);
+    }
   };
 
   return (
