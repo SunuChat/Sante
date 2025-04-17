@@ -10,7 +10,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<ChatBotPage />} />
-        <Route path="/login" element={<LoginPage />} />
+        <Route path="/loginj" element={<LoginPage />} />
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/test" element={<TestAudio />} />
       </Routes>
