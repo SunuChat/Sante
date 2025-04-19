@@ -91,54 +91,103 @@ const SignUpPage = () => {
 
           <form onSubmit={handleSubmit}>
             <TextField
-              label="Prénom"
+              placeholder="Prénom"
               variant="outlined"
               fullWidth
               margin="normal"
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
+              sx={{
+                height: "45px",
+                ".MuiInputBase-root": {
+                  height: "45px",
+                },
+                ".MuiFormLabel-root": {
+                  lineHeight: "unset !important",
+                },
+              }}
             />
             <TextField
-              label="Nom"
+              placeholder="Nom"
               variant="outlined"
               fullWidth
               margin="normal"
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
+              sx={{
+                ".MuiInputBase-root": {
+                  height: "45px",
+                },
+                ".MuiFormLabel-root": {
+                  lineHeight: "unset",
+                },
+              }}
             />
             <TextField
-              label="Email"
+              placeholder="Email"
               variant="outlined"
               fullWidth
               margin="normal"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              sx={{
+                ".MuiInputBase-root": {
+                  height: "45px",
+                },
+                ".MuiFormLabel-root": {
+                  lineHeight: "unset",
+                },
+              }}
             />
             <TextField
-              label="Téléphone"
+              placeholder="Téléphone"
               variant="outlined"
               fullWidth
               margin="normal"
               value={phoneNumber}
               onChange={(e) => setPhoneNumber(e.target.value)}
+              sx={{
+                ".MuiInputBase-root": {
+                  height: "45px",
+                },
+                ".MuiFormLabel-root": {
+                  lineHeight: "unset",
+                },
+              }}
             />
             <TextField
-              label="Mot de passe"
+              placeholder="Mot de passe"
               type="password"
               variant="outlined"
               fullWidth
               margin="normal"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              sx={{
+                ".MuiInputBase-root": {
+                  height: "45px",
+                },
+                ".MuiFormLabel-root": {
+                  lineHeight: "unset",
+                },
+              }}
             />
             <TextField
-              label="Confirmer le mot de passe"
+              placeholder="Confirmer le mot de passe"
               type="password"
               variant="outlined"
               fullWidth
               margin="normal"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
+              sx={{
+                ".MuiInputBase-root": {
+                  height: "45px",
+                },
+                ".MuiFormLabel-root": {
+                  lineHeight: "unset",
+                },
+              }}
             />
             {error && (
               <Typography color="error" variant="body2" sx={{ mt: 1 }}>

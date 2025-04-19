@@ -80,7 +80,7 @@ const LoginPage = () => {
 
           <form onSubmit={handleSubmit}>
             <TextField
-              label="Email"
+              placeholder="Email"
               variant="outlined"
               fullWidth
               margin="normal"
@@ -88,7 +88,7 @@ const LoginPage = () => {
               onChange={(e) => setEmail(e.target.value)}
             />
             <TextField
-              label="Mot de passe"
+              placeholder="Mot de passe"
               type="password"
               variant="outlined"
               fullWidth

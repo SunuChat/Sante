@@ -60,10 +60,7 @@ function ChatBotPage() {
   useEffect(() => {
     scrollToBottom();
   }, [chat]);
-  function isValidURL(text) {
-    const pattern = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i;
-    return pattern.test(text);
-  }
+
   // Fonction pour envoyer un message au backend FastAPI
   const sendMessage = async () => {
     if (mode === "demo") {
