@@ -1,4 +1,4 @@
-from fastapi import FastAPI, File, UploadFile, HTTPException
+from fastapi import FastAPI, Request, File, UploadFile, HTTPException
 from fastapi.responses import FileResponse, JSONResponse
 from tts import generate_speech
 from traduction_wo_fr import translate_wo_fr
@@ -12,6 +12,11 @@ from models import UserCreate, UserLogin
 from auth import hash_password, verify_password, create_access_token
 from bson import ObjectId
 from datetime import datetime
+from ultrabot import ultraChatBot
+from pydub import AudioSegment
+import tempfile
+from pydantic import BaseModel
+
 
 
 
@@ -73,7 +78,20 @@ async def chatbot(audio: UploadFile = File(...)):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
+@app.post('/ultrabot')
+async def ultrabot(request: Request):
+    data = await request.json()
+    print("requête", data)
+    bot = ultraChatBot(data)
+    return bot.Processingـincomingـmessages()
 
+class TextRequest(BaseModel):
+    text: str
+
+@app.post('/chatbotext')
+async def chatbotext(req: TextRequest):
+    reponse_rag, sources = ask_kb(req.text)
+    return {"reponse": reponse_rag, "sources": sources}
 
 app.add_middleware(
     CORSMiddleware,

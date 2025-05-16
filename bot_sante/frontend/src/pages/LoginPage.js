@@ -24,7 +24,7 @@ const LoginPage = () => {
         email: email,
         password: password,
       });
-      console.log(response.data);
+      console.log(response.data.access_token);
       navigate("/");
     } catch (err) {
       setError("Email ou mot de passe incorrect.");

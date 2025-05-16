@@ -38,8 +38,8 @@ const SignUpPage = () => {
       console.log(response.data);
       navigate("/login");
     } catch (err) {
-      console.log("erreur", err);
-      setError("L'inscription a échoué.");
+      console.log("erreur", err.response.data.detail);
+      setError(err.response.data.detail);
     }
   };
 
